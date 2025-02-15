@@ -15,4 +15,7 @@ echo "<!DOCTYPE html>
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -R ubuntu:ubuntu /data
 sudo sed -i '39 i\ \tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t}\n' /etc/nginx/sites-enabled/default
+if ! grep -q "location /hbnb_static/" /etc/nginx/sites-enabled/default; then
+    sudo sed -i '39 i\ \tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-enabled/default
+fi
 sudo service nginx restart
