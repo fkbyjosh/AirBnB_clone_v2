@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Create and distributes an archive to web servers"""
+"""Create and distributes an archive to web servers
+execute: fab -f 3-deploy_web_static.py deploy -i ~/.ssh/id_rsa -u ubuntu
+"""
 import os.path
 import time
 from fabric.api import local
